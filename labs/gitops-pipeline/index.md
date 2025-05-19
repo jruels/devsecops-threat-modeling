@@ -23,7 +23,10 @@ By the end of this lab, you'll have a fully functional GitOps pipeline using:
 
 Provisioning the EKS cluster takes the longest, so you will start this process first. While the cluster is being created, you will complete the remaining setup.
 
+
+
 ### Step 1: Install kubectl and eksctl
+#### Run the following in the AWS CloudShell
 
 Install the required CLIs to interact with Kubernetes and provision EKS. This ensures you can create, manage, and interact with your AWS-hosted Kubernetes cluster.
 

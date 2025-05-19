@@ -3,9 +3,6 @@
 This site includes the slides and labs for the GitOps: Streamlining Kubernetes Deployments class.
 
 
-## Course Content   
-[Slides]()   
-
 ## Labs   
 
 Lab 1: [Access AWS](labs/setup-aws/)   

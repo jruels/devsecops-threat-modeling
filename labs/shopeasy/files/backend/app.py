@@ -13,22 +13,24 @@ db = mysql.connector.connect(
     password="password",
     database="shopeasy"
 )
-
 @app.route('/api/login', methods=['POST'])
 def login():
     data = request.get_json()
     username = data['username']
     password = data['password']
-    
+
     cursor = db.cursor()
-    query = f"SELECT * FROM users WHERE username = '{username}' AND password = '{password}'"
+    query = (f"SELECT * FROM users "
+             f"WHERE username = '{username}' "
+             f"AND password = '{password}'")
+    print(query)
+
     cursor.execute(query)
-    user = cursor.fetchone()
+    rows = cursor.fetchall()      # fetch *all* rows, no unread data
     cursor.close()
-    
-    if user:
-        return jsonify({"success": True})
-    return jsonify({"success": False})
+
+    user = rows[0] if rows else None
+    return jsonify({"success": bool(user)})
 
 @app.route('/api/products', methods=['GET'])
 def get_products():

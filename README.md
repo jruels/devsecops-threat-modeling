@@ -1,11 +1,10 @@
-# GitOps: Streamlining Kubernetes Deployments
+# DevSecOps - Threat Modeling & Risk Assessment
 
-This site includes the slides and labs for the GitOps: Streamlining Kubernetes Deployments class.
+This site includes the slides and labs for the DevSecOps - Threat Modeling & Risk Assessment class.
 
 
 ## Labs   
 
-Lab 1: [Access AWS](labs/setup-aws/)   
-Lab 2: [Create a complete GitOps pipeline](labs/gitops-pipeline/)   
-Lab 3: [Update GitOps pipeline to inject variables](labs/gitops-variables/)   
+Lab 1: [Deploy the ShopEasy app](labs/shop-easy-setup/)   
+Lab 2: [Analyze ShopEasy vulnerabilities](labs/shop-easy-vuln/)   
 

@@ -1,37 +1,77 @@
-## Building the ShopEasy app from scratch:
-
-- To develop the sample application from scratch, follow the instructions in [Build App](BuildApp.md)
-  
-## Running with Docker
-
-Alternatively, you can run the application with Docker if you sourced the files from git as follows:
-
-## Running with Docker
-
-### Prerequisites
-- Install [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/).
-
 ### Instructions
+
+#### Access the lab VM 
+
+At the top of the lab page, click **View on GitHub**. Click the green **Code** button in the top right corner, then click **Download as zip**. Once the download is done, extract the zip file and put it somewhere you can easily access it.
+
+### Mac/Linux
+
+The username for SSH is 
+`ubuntu`
+
+Open a terminal and `cd` to the extracted lab directory. Inside the directory, you will see a `keys` directory. Enter it using `cd` and run the following commands.
+
+### Set permissions on SSH key
+
+```
+chmod 600 lab.pem
+```
+
+### SSH to lab servers
+
+```
+ssh -L 8080:localhost:8080 -L 5000:localhost:5000 -i <path/to/lab.pem> ubuntu@<IP FROM SPREADSHEET> 
+```
+
+* `-L 8080:localhost:8080`: Listen on port 8080 on your local machine and forward traffic to port 8080 of the remote server.
+* `-L 5000:localhost:5000`: Listen on port 5000 locally and forward it to port 5000 on the remote server.
+* `-i <path/to/lab.pem>`: Use the specified private key file for authentication.
+* `ubuntu@<IP FROM SPREADSHEET>`: Connect as the ubuntu user to the remote server IP address (placeholder pulled from your spreadsheet)
+
+### Windows (PowerShell)
+
+The username for SSH is
+`ubuntu`
+
+Open PowerShell and run the following: 
+
+```
+ssh -L 8080:localhost:8080 -L 5000:localhost:5000 -i <path/to/lab.pem> ubuntu@<IP FROM SPREADSHEET>
+```
+
+* `-L 8080:localhost:8080`: Listen on port 8080 on your local machine and forward traffic to port 8080 of the remote server.
+* `-L 5000:localhost:5000`: Listen on port 5000 locally and forward it to port 5000 on the remote server.
+* `-i <path/to/lab.pem>`: Use the specified private key file for authentication.
+* `ubuntu@<IP FROM SPREADSHEET>`: Connect as the ubuntu user to the remote server IP address (placeholder pulled from your spreadsheet)
+
+## Running with Docker
+
+Run the following steps on the VM:
+
 1. Clone the repository:
    ```bash
-   git clone <this-repository>
-   cd ShopEasy
+   git clone https://github.com/jruels/devsecops-threat-modeling
+   cd devsecops-threat-modeling/shopeasy/files
    ```
 
 2. Start the application:
   ```bash
-    docker-compose up --build
+    docker-compose up --build -d
   ```
-  - The --build flag ensures images are built fresh.
+  - The `--build` flag ensures images are built fresh.
 
-3. Access the application
+Load the application in your local browser:
+
+1. Access the application
+
   - Frontend: `http://localhost:8080`
   - Backend API: `http://localhost:5000`
 
-4. Stop the application
+2. Stop the application
+
   - Press `Ctr + C` in the terminal, then run
   - `docker-compose down`
-  
+
 
 Notes
 

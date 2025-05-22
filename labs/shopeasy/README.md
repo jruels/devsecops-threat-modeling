@@ -2,7 +2,7 @@
 
 #### Access the lab VM 
 
-At the top of the lab page, click **View on GitHub**. Click the green **Code** button in the top right corner, then click **Download as zip**. Once the download is done, extract the zip file and put it somewhere you can easily access it.
+On [this](https://github.com/jruels/devsecops-threat-modeling/tree/main) page, click the green **Code** button in the top right corner, then click **Download as zip**. Once the download is done, extract the zip file and put it somewhere you can easily access it.
 
 ### Mac/Linux
 

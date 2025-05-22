@@ -2,6 +2,9 @@ FROM python:3.8-slim
 
 WORKDIR /app
 
+# Upgrade pip to the latest version
+RUN pip install --no-cache-dir --upgrade pip
+
 # Copy and install dependencies
 COPY requirements.txt ./
 RUN pip install -r requirements.txt

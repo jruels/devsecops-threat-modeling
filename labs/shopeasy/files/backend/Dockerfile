@@ -7,7 +7,7 @@ RUN pip install --no-cache-dir --upgrade pip
 
 # Copy and install dependencies
 COPY requirements.txt ./
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt --no-use-pep517
 
 # Copy the wait_for_db.py script explicitly
 COPY wait-for-it.py /app/wait_for_db.py

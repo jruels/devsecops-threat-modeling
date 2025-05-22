@@ -1,6 +1,19 @@
 FROM python:3.8-slim
+
 WORKDIR /app
+
+# Copy and install dependencies
 COPY requirements.txt ./
 RUN pip install -r requirements.txt
+
+# Copy the wait_for_db.py script explicitly
+COPY wait-for-it.py /app/wait_for_db.py
+
+# Copy other application files
 COPY . .
-CMD ["python", "app.py"]
+
+# Ensure the wait_for_db.py script is executable
+RUN chmod +x wait_for_db.py
+
+# Update the CMD to use the wait_for_db.py script
+CMD ["sh", "-c", "python wait_for_db.py db 3306 && python app.py"]

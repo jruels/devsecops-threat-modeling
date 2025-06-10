@@ -51,7 +51,7 @@ Run the following steps on the VM:
 1. Clone the repository:
    ```bash
    git clone https://github.com/jruels/devsecops-threat-modeling
-   cd devsecops-threat-modeling/shopeasy/files
+   cd devsecops-threat-modeling/labs/shopeasy/files
    ```
 
 2. Start the application:

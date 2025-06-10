@@ -56,7 +56,7 @@ Run the following steps on the VM:
 
 2. Start the application:
   ```bash
-    docker-compose up --build -d
+    docker compose up --build -d
   ```
   - The `--build` flag ensures images are built fresh.
 
@@ -70,7 +70,7 @@ Load the application in your local browser:
 2. Stop the application
 
   - Press `Ctr + C` in the terminal, then run
-  - `docker-compose down`
+  - `docker compose down`
 
 
 Notes
@@ -79,7 +79,7 @@ The database is automatically initialized with the database.sql script.
 If the backend fails to connect to the database initially, restart it with:
 
 ```bash
-docker-compose restart backend
+docker compose restart backend
 ```
 
 
@@ -89,5 +89,5 @@ docker-compose restart backend
 
 - **CORS**: Ensure the Flask app has `CORS(app)` (from `flask_cors`) to allow requests from `http://localhost:8080`. This is typically included by default in Flask setups with CORS enabled.
 - **Startup Order**: The backend might start before the database is ready. For simplicity, students can restart the backend if needed. A more robust solution (e.g., a wait script) is omitted for educational purposes.
-- **Port Conflicts**: If ports 8080 or 5000 are in use, students can modify the `ports` mappings in `docker-compose.yml` (e.g., `"8081:80"`).
+- **Port Conflicts**: If ports 8080 or 5000 are in use, students can modify the `ports` mappings in `docker compose.yml` (e.g., `"8081:80"`).
 
